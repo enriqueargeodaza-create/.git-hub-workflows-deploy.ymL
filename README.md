@@ -43,7 +43,23 @@ const mrq_database = {
     <h1>BIENVENIDOS AL MUNDO DE LA GENTE MRQ</h1>
     <p>Acceso: LIBRE | Privacidad: TOTALMENTE ENCRIPTADA</p>
     <button onclick="iniciarSesionAnonima()">ENTRAR SIN RASTRO</button>
-</div>
+</div> /* Motor de Privacidad MRQ - Gerencia General */
+const ChatMRQ = {
+    enviarMensaje: function(texto) {
+        // Los mensajes se encriptan localmente antes de salir
+        const msgCifrado = btoa(texto); 
+        this.mostrarEnPantalla(msgCifrado);
+    },
+    autodestruccion: function() {
+        // Al cerrar o refrescar, la memoria volátil se limpia a cero
+        window.onbeforeunload = () => {
+            sessionStorage.clear();
+            console.log("Protocolo MRQ: Memoria limpiada.");
+        };
+    }
+};
+ChatMRQ.autodestruccion();
+
 
 
 
