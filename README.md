@@ -15,5 +15,10 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Publica todo el contenido del repo
+          publish_dir: ./  # Publica todo el contenido del repo git checkout main
+git pull origin main
+git add .
+git commit -m "ACTIVA INTERRUPTOR: MUNDO MRQ FUNCIONAL" git push origin main --force
+
+
           
