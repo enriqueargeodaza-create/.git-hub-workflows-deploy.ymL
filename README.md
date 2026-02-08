@@ -18,7 +18,29 @@ jobs:
           publish_dir: ./  # Publica todo el contenido del repo git checkout main
 git pull origin main
 git add .
-git commit -m "ACTIVA INTERRUPTOR: MUNDO MRQ FUNCIONAL" git push origin main --force
+git commit -m "ACTIVA INTERRUPTOR: MUNDO MRQ FUNCIONAL" git push origin main --force // Configuración de la Base de Datos MRQ
+const mrq_database = {
+    project: "MUNDO_MRQ",
+    status: "ACTIVE",
+    users: [],
+    
+    registerUser: function(name, energy) {
+        const newUser = {
+            id: Date.now(),
+            username: name,
+            level: energy,
+            timestamp: new Date().toISOString()
+        };
+        this.users.push(newUser);
+        console.log(`Usuario ${name} integrado con éxito.`);
+    }
+};
+<div id="root">
+    <h1>BIENVENIDOS AL MUNDO DE LA GENTE MRQ</h1>
+    <p>Acceso: LIBRE | Privacidad: TOTALMENTE ENCRIPTADA</p>
+    <button onclick="iniciarSesionAnonima()">ENTRAR SIN RASTRO</button>
+</div>
+
 
 
           
