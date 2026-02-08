@@ -126,6 +126,8 @@ const LiveChat = {
         <button onclick="limpiarPantalla()" style="background: #00FF41; color: black; border: none; padding: 10px;">LIMPIAR TODO</button>
     </div>
 </div>
+ 
+
 
 
 
