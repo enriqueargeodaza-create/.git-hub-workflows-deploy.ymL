@@ -63,7 +63,19 @@ window.onload = function() {
     const welcomeMsg = "BIENVENIDO AL MUNDO MRQ: PRIVACIDAD TOTAL ACTIVADA.";
     console.log("%c" + welcomeMsg, "color: #00FF41; font-size: 20px; font-weight: bold;");
     // Esto muestra un aviso elegante al usuario sin interrumpir su navegación
-};
+}; /* PROTOCOLO SOBERANO - VALIDACIÓN BIOMÉTRICA */
+async function activarPausaBiometrica() {
+    try {
+        const credencial = await navigator.credentials.get({ publicKey: configuracion_biometrica });
+        if (credencial) {
+            console.log("IDENTIDAD VERIFICADA: INICIANDO PAUSA DE EMERGENCIA");
+            ejecutarHibernacionTotal(); // Bloquea el Mundo MRQ
+        }
+    } catch (error) {
+        console.error("FALLO DE AUTENTICACIÓN: ACCESO DENEGADO");
+    }
+}
+
 
 
 
