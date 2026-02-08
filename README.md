@@ -39,7 +39,12 @@ const mrq_database = {
     <h1>BIENVENIDOS AL MUNDO DE LA GENTE MRQ</h1>
     <p>Acceso: LIBRE | Privacidad: TOTALMENTE ENCRIPTADA</p>
     <button onclick="iniciarSesionAnonima()">ENTRAR SIN RASTRO</button>
+</div> <div id="root">
+    <h1>BIENVENIDOS AL MUNDO DE LA GENTE MRQ</h1>
+    <p>Acceso: LIBRE | Privacidad: TOTALMENTE ENCRIPTADA</p>
+    <button onclick="iniciarSesionAnonima()">ENTRAR SIN RASTRO</button>
 </div>
+
 
 
 
