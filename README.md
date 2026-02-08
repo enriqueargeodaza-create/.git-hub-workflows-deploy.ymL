@@ -58,7 +58,14 @@ const ChatMRQ = {
         };
     }
 };
-ChatMRQ.autodestruccion();
+ChatMRQ.autodestruccion(); // Script de Bienvenida - Gerencia General MRQ
+window.onload = function() {
+    const welcomeMsg = "BIENVENIDO AL MUNDO MRQ: PRIVACIDAD TOTAL ACTIVADA.";
+    console.log("%c" + welcomeMsg, "color: #00FF41; font-size: 20px; font-weight: bold;");
+    // Esto muestra un aviso elegante al usuario sin interrumpir su navegación
+};
+
+
 
 
 
