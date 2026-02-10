@@ -214,7 +214,35 @@ jobs:
           enviar(os.getenv('GRUPO_ID'), 'GRUPO')
           enviar(os.getenv('CANAL_ID'), 'CANAL')
           "
-          
+       name: Shadow Operation Bot Activation
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Permite ejecución manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependencias
+        run: |
+          pip install pyTelegramBotAPI google-generativeai
+
+      - name: Ejecutar Bot de Red Social
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python main.py
+        
 
 
 
