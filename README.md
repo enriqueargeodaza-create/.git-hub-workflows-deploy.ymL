@@ -161,6 +161,7 @@ jobs:
 ### 🛡️ Centro de Comando (Shadow Ops)
 Acceso a la Directiva de IA vía Telegram: [Unirse al Chat Operativo](https://t.me/TuEnlaceDeInvitacion)
 
+![IA Directiva](https://img.shields.io/badge/IA_DIRECTIVA-ONLINE-00BFFF?style=for-the-badge&logo=telegram&logoColor=white)
 
 
 
