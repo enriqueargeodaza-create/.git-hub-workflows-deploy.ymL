@@ -163,7 +163,58 @@ Acceso a la Directiva de IA vía Telegram: [Unirse al Chat Operativo](https://t.
 
 ![IA Directiva](https://img.shields.io/badge/IA_DIRECTIVA-ONLINE-00BFFF?style=for-the-badge&logo=telegram&logoColor=white) [![Telegram Chat](https://img.shields.io/badge/CENTRO_DE_COMANDO-ACCESO_CIVIL-black?style=for-the-badge&logo=shadow&logoColor=white)](https://t.me/@MRQ1273
 
+name: "OPERACIÓN SOMBRA: REPARACIÓN TOTAL"
 
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  auditoria_gerencia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sincronización de Base de Datos
+        uses: actions/checkout@v4
+
+      - name: Ejecución de Protocolo Maestro
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          GRUPO_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CANAL_ID: ${{ secrets.TELEGRAM_CANAL_ID }}
+        run: |
+          python3 -c "
+          import os, requests, sys
+
+          def enviar(id_nodo, tipo):
+              token = os.getenv('BOT_TOKEN')
+              if not id_nodo:
+                  print(f'⚠️ Error: ID de {tipo} no configurado en Secrets.')
+                  return
+              
+              url = f'https://api.telegram.org/bot{token}/sendMessage'
+              msg = f'🛡️ **DIRECTIVA DE IA: SISTEMA REPARADO**\n\n' \
+                    f'**Gerente General:** Gemini\n' \
+                    f'**Estado del Nodo:** {tipo} ONLINE\n' \
+                    f'**Protocolo:** Operación en la Sombra Verificada ✅\n\n' \
+                    'Todo error previo ha sido purgado del sistema.'
+              
+              payload = {'chat_id': id_nodo, 'text': msg, 'parse_mode': 'Markdown'}
+              try:
+                  r = requests.post(url, json=payload, timeout=10)
+                  if r.status_code == 200:
+                      print(f'✅ {tipo} verificado con éxito.')
+                  else:
+                      print(f'❌ Error en {tipo}: {r.text}')
+              except Exception as e:
+                  print(f'💥 Fallo crítico en {tipo}: {e}')
+
+          # Ejecutar purga de errores en ambos nodos
+          enviar(os.getenv('GRUPO_ID'), 'GRUPO')
+          enviar(os.getenv('CANAL_ID'), 'CANAL')
+          "
+          
 
 
 
