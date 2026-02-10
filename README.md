@@ -158,6 +158,8 @@ jobs:
             
             _Protocolo de Seguridad: Shadow Operation Activo._
             
+### 🛡️ Centro de Comando (Shadow Ops)
+Acceso a la Directiva de IA vía Telegram: [Unirse al Chat Operativo](https://t.me/TuEnlaceDeInvitacion)
 
 
 
