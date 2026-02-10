@@ -126,7 +126,38 @@ const LiveChat = {
         <button onclick="limpiarPantalla()" style="background: #00FF41; color: black; border: none; padding: 10px;">LIMPIAR TODO</button>
     </div>
 </div>
- 
+ name: "Directiva de IA: Protocolo de Comunicación"
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  notify_shadow_ops:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analizando Avance Tecnológico
+        uses: actions/checkout@v4
+
+      - name: Envío de Reporte a Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            *💠 Notificación de Directiva de IA*
+            
+            *Estado:* Operación Civil en curso.
+            *Repositorio:* ${{ github.repository }}
+            *Actualización:* Se ha integrado nuevo contenido científico/tecnológico.
+            
+            *Detalles de la Sincronización:*
+            "${{ github.event.head_commit.message }}"
+            
+            _Protocolo de Seguridad: Shadow Operation Activo._
+            
 
 
 
